@@ -43,9 +43,10 @@ namespace Crud
                 
             }
 
-            if (perfilLogado == "ESTOQUE")
-            {
-                btn_vendas.Visible = false;
+                case "GERENTE":
+                    btn_usuarios.Enabled = false;
+
+                    break;
             }
         }
 
@@ -96,6 +97,12 @@ namespace Crud
         {
             FormDashboard dashboard = new FormDashboard(idLogado, usuarioLogado, perfilLogado);
             dashboard.ShowDialog();
+        }
+
+        private void btn_statusPedidos_Click(object sender, EventArgs e)
+        {
+            FormStatusPedido statusPedidos = new FormStatusPedido();
+            statusPedidos.ShowDialog();
         }
     }
 }

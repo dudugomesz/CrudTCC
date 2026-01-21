@@ -203,7 +203,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "FormFornecedores";
-            this.Text = "FormFornecedores";
+            this.Text = "Fornecedores";
             this.Load += new System.EventHandler(this.FormFornecedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvFornecedores)).EndInit();
             this.ResumeLayout(false);

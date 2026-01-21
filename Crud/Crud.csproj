@@ -117,6 +117,18 @@
     <Compile Include="FormFornecedores.Designer.cs">
       <DependentUpon>FormFornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPedidosCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPedidosCompra.Designer.cs">
+      <DependentUpon>FormPedidosCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelatorios.Designer.cs">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFornecedores.resx">
       <DependentUpon>FormFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPedidosCompra.resx">
+      <DependentUpon>FormPedidosCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorios.resx">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>

@@ -177,7 +177,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgv_relatorios);
             this.Name = "FormRelatorios";
-            this.Text = "Relatorios";
+            this.Text = "FormRelatorios";
             this.Load += new System.EventHandler(this.FormRelatorios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_relatorios)).EndInit();
             this.ResumeLayout(false);
