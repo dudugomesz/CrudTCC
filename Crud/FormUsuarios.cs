@@ -43,22 +43,19 @@ namespace Crud
 
             dgvUsuarios.Columns["id_usuario"].Visible = false;
         }
-        private void FrmUsuarios_Load(object sender, EventArgs e)
-        {
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.MultiSelect = false;
-            dgvUsuarios.ReadOnly = true;
-
-
-            CarregarUsuarios();
-        }
+        
         public FormUsuarios(int id, string nome, string perfil)
         {
             InitializeComponent();
             idUsuario = id;
             nomeUsuario = nome;
             perfilUsuario = perfil;
+
+            if (perfilUsuario != "GERENTE")
+            {
+                MessageBox.Show("Acesso negado! Apenas gerentes podem acessar usuários.");
+                this.Close();
+            }
 
         }
         private void LimparCampos()
@@ -71,6 +68,40 @@ namespace Crud
 
             idUsuarioSelecionado = 0;
         }
+
+        private void CarregarPerfis()
+        {
+            using (MySqlConnection con = Conexao.GetConexao())
+            {
+                string sql = "SHOW COLUMNS FROM usuarios LIKE 'perfil'";
+
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                con.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string type = reader["Type"].ToString();
+                       
+
+                        type = type.Replace("enum(", "").Replace(")", "").Replace("'", "");
+                       
+
+                        string[] valores = type.Split(',');
+
+                        cmbPerfil.Items.Clear();
+                        foreach (var item in valores)
+                        {
+                            cmbPerfil.Items.Add(item);
+                        }
+                    }
+                }
+            }
+
+            cmbPerfil.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
 
 
         private void dataGridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -189,6 +220,7 @@ namespace Crud
 
             CarregarUsuarios();
             LimparCampos();
+
         }
 
         private void btn_read_user_Click(object sender, EventArgs e)
@@ -214,7 +246,14 @@ namespace Crud
 
         private void FormUsuarios_Load(object sender, EventArgs e)
         {
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuarios.MultiSelect = false;
+            dgvUsuarios.ReadOnly = true;
 
+
+            CarregarUsuarios();
+            CarregarPerfis();
         }
     }
 }

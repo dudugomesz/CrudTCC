@@ -207,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "pecas";
-            this.Text = "pecas";
+            this.Text = "Estoque de Peças";
             this.Load += new System.EventHandler(this.pecas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvPecas)).EndInit();
             this.ResumeLayout(false);

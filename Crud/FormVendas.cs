@@ -158,10 +158,10 @@ namespace Crud
 
                 try
                 {
-                    // 1) Inserir venda
+                    // Inserir venda com status ABERTA
                     string sqlVenda =
                         "INSERT INTO vendas (id_vendedor, data_venda, valor_total, desconto_aplicado, status) " +
-                        "VALUES (@idVend, @data, @total, @desconto, 'FINALIZADA')";
+                        "VALUES (@idVend, @data, @total, @desconto, 'ABERTA')";
 
                     MySqlCommand cmdVenda = new MySqlCommand(sqlVenda, con, trans);
                     cmdVenda.Parameters.AddWithValue("@idVend", idUsuarioLogado);
@@ -172,7 +172,7 @@ namespace Crud
 
                     int idVenda = (int)cmdVenda.LastInsertedId;
 
-                    // 2) Inserir itens
+                    // Inserir itens da venda
                     foreach (DataGridViewRow row in DgvITENS.Rows)
                     {
                         string sqlItem =
@@ -188,7 +188,11 @@ namespace Crud
                     }
 
                     trans.Commit();
-                    MessageBox.Show("Venda finalizada com sucesso!");
+
+                    // Abre a tela de pagamento
+                    FormPagamento frmPagamento = new FormPagamento(idVenda, idUsuarioLogado);
+                    frmPagamento.ShowDialog();
+
                     LimparVenda();
                 }
                 catch
@@ -197,6 +201,7 @@ namespace Crud
                     MessageBox.Show("Erro ao finalizar venda!");
                 }
             }
+
 
         }
 
@@ -227,6 +232,15 @@ namespace Crud
                 return;
 
             LimparVenda();
+        }
+
+        private void btn_voltar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja voltar ao menu principal?",
+            "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

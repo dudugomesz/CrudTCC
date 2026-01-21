@@ -203,7 +203,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "FormVendas";
-            this.Text = "FormVendas";
+            this.Text = "Vendas";
             this.Load += new System.EventHandler(this.FormVendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvITENS)).EndInit();
             this.ResumeLayout(false);

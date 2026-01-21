@@ -37,7 +37,10 @@
             this.lblPerfil = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
-            this.btn_dashboard = new System.Windows.Forms.Button();
+            this.btn_clientes = new System.Windows.Forms.Button();
+            this.btn_pedidos_compra = new System.Windows.Forms.Button();
+            this.btn_aprovacao = new System.Windows.Forms.Button();
+            this.btn_relatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -140,12 +143,23 @@
             this.btn_dashboard.UseVisualStyleBackColor = true;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
             // 
+            this.btn_relatorio.Location = new System.Drawing.Point(600, 273);
+            this.btn_relatorio.Name = "btn_relatorio";
+            this.btn_relatorio.Size = new System.Drawing.Size(122, 54);
+            this.btn_relatorio.TabIndex = 16;
+            this.btn_relatorio.Text = "Relatório";
+            this.btn_relatorio.UseVisualStyleBackColor = true;
+            this.btn_relatorio.Click += new System.EventHandler(this.btn_relatorio_Click);
+            // 
             // Menu_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 603);
-            this.Controls.Add(this.btn_dashboard);
+            this.Controls.Add(this.btn_relatorio);
+            this.Controls.Add(this.btn_aprovacao);
+            this.Controls.Add(this.btn_pedidos_compra);
+            this.Controls.Add(this.btn_clientes);
             this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_relatorios);
@@ -156,7 +170,7 @@
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblUsuario);
             this.Name = "Menu_principal";
-            this.Text = "Menu_principal";
+            this.Text = "Menu Principal";
             this.Load += new System.EventHandler(this.Menu_principal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,6 +188,9 @@
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_logout;
-        private System.Windows.Forms.Button btn_dashboard;
+        private System.Windows.Forms.Button btn_clientes;
+        private System.Windows.Forms.Button btn_pedidos_compra;
+        private System.Windows.Forms.Button btn_aprovacao;
+        private System.Windows.Forms.Button btn_relatorio;
     }
 }
